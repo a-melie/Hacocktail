@@ -9,6 +9,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpClient\HttpClient;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
@@ -38,5 +39,18 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
+    }
+
+    protected function get(string $url, bool $toArray = true) : array
+    {
+        $client   = HttpClient::create();
+        $response = $client->request('GET', $url);
+        if ($response->getStatusCode() === 200) {
+            return $toArray ? $response->toArray() : $response->getContent() ;
+        } else {
+            throw new \Exception('
+            Impossible to resolve this request. 
+            Please check your URL and your API KEY');
+        }
     }
 }
