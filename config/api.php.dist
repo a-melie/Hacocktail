@@ -13,4 +13,4 @@
  *
  */
 
-define('APP_API_KEY', 'api_key');
+define('APP_API_KEY', 'DEMO_KEY');
