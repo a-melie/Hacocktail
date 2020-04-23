@@ -46,12 +46,16 @@ abstract class AbstractController
     {
         $client   = HttpClient::create();
         $response = $client->request('GET', $url);
-        if ($response->getStatusCode() === 200) {
-            return $response->toArray();
-        } else {
+        if ($response->getStatusCode() === 403) {
+            throw new Exception('
+            Access forbidden, check your API Key.
+            ');
+        } elseif ($response->getStatusCode() !== 200) {
             throw new Exception('
             Impossible to resolve this request. 
             Please check your URL and your API KEY');
+        } else {
+            return $response->toArray();
         }
     }
 }
