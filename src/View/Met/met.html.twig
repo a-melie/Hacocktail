@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Museum
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>{{ pic_data.title }}</h1>
+        <h2>{{ pic_data.department }}</h2>
+        <h3>{{ pic_data.classification }}</h3>
+        <div class="webcam">
+            <img src="{{ pic_data.primaryImageSmall }}">
+        </div>
+    </div>
+{% endblock %}
