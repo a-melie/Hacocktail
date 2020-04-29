@@ -10,6 +10,7 @@ class Cocktail
         $result['name']        = $cocktail['drinks']['0']['strDrink'];
         $result['alcoholic']   = $cocktail['drinks']['0']['strAlcoholic'];
         $result['instruction'] = $cocktail['drinks']['0']['strInstructions'];
+        $result['image']       = $cocktail['drinks']['0']['strDrinkThumb'];
         $result['ingredients'] = [
             '1'  =>  $cocktail['drinks']['0']['strIngredient1'],
             '2'  =>  $cocktail['drinks']['0']['strIngredient2'],
@@ -27,7 +28,7 @@ class Cocktail
             '14' =>  $cocktail['drinks']['0']['strIngredient14'],
             '15' =>  $cocktail['drinks']['0']['strIngredient15'],
         ];
-        $result['Measure']     = [
+        $result['measures']     = [
             '1'  =>  $cocktail['drinks']['0']['strMeasure1'],
             '2'  =>  $cocktail['drinks']['0']['strMeasure2'],
             '3'  =>  $cocktail['drinks']['0']['strMeasure3'],

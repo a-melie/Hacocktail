@@ -28,7 +28,6 @@ class HomeController extends AbstractController
     {
         $cocktailApi = new CocktailApi();
         $cocktail = $cocktailApi->getRandomCocktail();
-
-        return $this->twig->render('Home/index.html.twig', ['cocktail', $cocktail]);
+        return $this->twig->render('Home/index.html.twig', ['cocktail' => $cocktail]);
     }
 }

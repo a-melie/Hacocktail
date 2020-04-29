@@ -3,11 +3,11 @@
     height: 300px;
 }
 .container{
-    height: 90%;
+    width: 40%;
 }
 body{
-    background-image: url("https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-    backdrop-filter: grayscale(60%);
+    background-image: url("https://cdn.discordapp.com/attachments/704233251459432518/705157094109610154/test.jpg");
+    backdrop-filter: grayscale(70%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
