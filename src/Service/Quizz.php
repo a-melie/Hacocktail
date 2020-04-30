@@ -22,17 +22,16 @@ class Quizz
         $themeManager = new ThemeManager();
         $theme = $themeManager->selectOneById($question[0]['theme_id']);
 
-        return Quizz::checkAnswer($answer['reponse'], $question[0]['solution'], $theme['title']);
+        Quizz::checkAnswer($answer['reponse'], $question[0]['solution'], $theme['title']);
     }
 
     public static function checkAnswer(string $answer, string $solution, string $theme): string
     {
         if ($answer === $solution) {
             $_SESSION[$theme]['score']++;
-            $sentence = 'Good Answer !';
+            $_SESSION[$theme]['solution'][] = 'Good Answer !';
         } else {
-            $sentence = 'Too bad ! The good answer is ' . $solution . '!';
+            $_SESSION[$theme]['solution'][] = 'Too bad ! The good answer is ' . $solution . ' !';
         }
-        return $sentence;
     }
 }

@@ -2,8 +2,16 @@
 
 {% block content %}
     <div class="container">
-        <div class="col-6 offset-3">
+        <div class="col-6 offset-3 mb-3">
             <h1 class="bg-light text-center">You answered correctly at {{ score }} of {{ nb }} questions</h1>
         </div>
+        {% for result in results %}
+            {% if result == 'Good Answer !' %}
+            <p class="alert alert-primary">{{ result }}</p>
+            {% else %}
+            <p class="alert alert-danger">{{ result }}</p>
+            {% endif %}
+        {% endfor %}
+
     </div>
 {% endblock %}

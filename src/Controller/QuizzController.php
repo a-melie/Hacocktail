@@ -63,10 +63,12 @@ class QuizzController extends AbstractController
     {
         $score = $_SESSION[$theme]['score'];
         $nbQuestions = $_SESSION[$theme]['nb_questions'];
+        $results = $_SESSION[$theme]['solution'];
         $_SESSION[$theme] = [];
         return $this->twig->render('Quizz/finish.html.twig', [
             'score' => $score,
             'nb' => $nbQuestions,
+            'results' => $results,
         ]);
     }
 }
