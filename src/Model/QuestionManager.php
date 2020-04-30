@@ -28,4 +28,15 @@ class QuestionManager extends AbstractManager
 
         return $statement->fetchAll();
     }
+
+    public function selectOneById(int $id): array
+    {
+        $query  = 'SELECT * FROM ' . self::TABLE . ' q';
+        $query .= ' JOIN ' . ThemeHasQuestionManager::TABLE . ' has ON q.id = has.question_id';
+        $query .= ' JOIN theme t ON t.id = has.theme_id';
+        $query .= ' WHERE q.id = ' . $id;
+        $statement = $this->pdo->query($query);
+
+        return $statement->fetchAll();
+    }
 }

@@ -7,6 +7,7 @@ use App\Model\CocktailApi;
 use App\Model\PixabayApi;
 use App\Model\QuestionManager;
 use App\Model\ThemeManager;
+use App\Service\Quizz;
 
 class QuizzController extends AbstractController
 {
@@ -20,16 +21,26 @@ class QuizzController extends AbstractController
 
     public function play(string $theme, int $order)
     {
+        var_dump($_SESSION);
+
         $quizz = new QuestionManager();
         $questions = $quizz->selectByTheme($theme, $order);
+
         $pixabay = new PixabayApi();
         $background = $pixabay->getBackgroundById($questions['0']['background_id']);
+
         $cocktail = new CocktailApi();
         $cocktailId = $cocktail->getCocktailById($questions['0']['cocktail_id']);
+
         return $this->twig->render('Quizz/play.html.twig', [
             'questions' => $questions[0],
             'background' => $background,
             'cocktail' => $cocktailId
         ]);
+    }
+
+    public function verifyReponse()
+    {
+        return Quizz::reponse();
     }
 }
