@@ -21,7 +21,11 @@ class QuizzController extends AbstractController
     {
         $quizz = new QuestionManager();
         $questions = $quizz->selectByTheme($theme, $order);
+        $pixabay= new PixabayApi();
+        $background =$pixabay->getBackgroundById($questions['0']['background_id']);
         return $this->twig->render('Quizz/play.html.twig', [
-            'questions' => $questions]);
+            'questions' => $questions,
+            'background' => $background
+            ]);
     }
 }
