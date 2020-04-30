@@ -18,11 +18,11 @@ class QuizzManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function selectByTheme(string $theme) :array
+    public function selectByTheme(string $theme, int $order) :array
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table .' 
             JOIN theme_has_question tinter ON question.id=tinter.question_id
             JOIN theme t ON t.id = tinter.theme_id
-            WHERE t.title=\'' . $theme . '\'')->fetchAll();
+            WHERE t.title=\'' . $theme . '\' AND tinter.order=' .$order)->fetchAll();
     }
 }
