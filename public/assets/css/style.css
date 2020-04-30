@@ -1,16 +1,44 @@
+nav img {
+    height: 50px;
+    width: 45px;
+    margin-right: 20px;
+}
+
 .webcam, img {
     width: 500px;
     height: 300px;
 }
-.container{
-    width: 40%;
+
+h3 {
+    color: cadetblue;
 }
+
+.size {
+    width: 40%;
+    background-color: rgba(255,255,255,0.95);
+    padding-right: 5px;
+    padding-left: 5px;
+    min-height: calc(100vh - 56px);
+}
+
+.size img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border-radius: 5px;
+}
+
+.no-transform {
+    list-style: none;
+}
+
 body{
-    background-image: url("https://cdn.discordapp.com/attachments/704233251459432518/705157094109610154/test.jpg");
+    background-image: url("/assets/images/fond.jpg");
     backdrop-filter: grayscale(70%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+<<<<<<< HEAD
 }
 
 /* Footer  */
@@ -162,19 +190,8 @@ body{
     margin: 0;
 }
 
-@media (max-width: 767px) {
-    .footer {
-        font-size: 14px;
-    }
-    .footer .footer-left,
-    .footer .footer-center,
-    .footer .footer-right {
-        display: block;
-        width: 100%;
-        margin-bottom: 40px;
-        text-align: center;
-    }
-    .footer .footer-center i {
-        margin-left: 0;
-    }
+/* form*/
+form {
+    width: 30%;
 }
+

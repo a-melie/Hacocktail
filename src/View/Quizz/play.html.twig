@@ -2,4 +2,8 @@
 
 {% block content %}
     {{ dump(questions) }}
+    {{ dump(background) }}
+{% endblock %}
+{% block javascript %}
+<script> document.body.style.backgroundImage= "url('{{ background }}')";</script>
 {% endblock %}
