@@ -44,6 +44,9 @@ body{
     background-position: center;
 
 }
+.hidden{
+    display: none;
+}
 
 /* Footer  */
 
