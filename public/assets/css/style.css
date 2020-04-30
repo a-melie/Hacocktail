@@ -153,6 +153,10 @@ body{
 
 .footer .footer-right {
     width: 35%;
+    min-height: calc(10vh - 30px);
+    padding-top: 3px;
+    width: 100%;
+    height: auto;
 }
 
 .footer h2 {
@@ -195,9 +199,7 @@ form {
     width: 30%;
 }
 
-<<<<<<< HEAD
-=======
 .bg-light {
     background-color: white !important;
 }
->>>>>>> c03e6329059d00abfbe177561cc47222d728977f
+
