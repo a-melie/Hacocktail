@@ -208,3 +208,21 @@ form {
     background-color: white !important;
 }
 
+.btn-primary {
+    height: 100px;
+    width: 300px;
+    font-size: 1.5em;
+    background-color: white;
+    color: black;
+}
+
+nav .nav-link:hover {
+    color: cadetblue !important;
+    font-size: 1.2rem;
+    transition: 0.4s;
+}
+
+nav .nav-link {
+    font-size: 1.1rem;
+    font-variant-caps: small-caps;
+}
