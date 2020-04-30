@@ -10,16 +10,16 @@
             <div class="container-fluid d-flex justify-content-between">
                 <div class="bg-light rounded">
                     <img src="{{ cocktail.image }}" class="img rounded" alt="cocktail">
-                    <h3 class="text-center text-dark mt-2">{{ cocktail.name }}</h3>
+                    <h3 class="text-center text-dark mt-4">{{ cocktail.name }}</h3>
                 </div>
                 <div>
                     <div class="text-center choice">
                         <button class="btn btn-secondary fixed-size float-center">{{ questions.reponse1 }}</button>
                     </div>
-                    <div class="text-center mt-3 choice">
+                    <div class="text-center mt-4 choice">
                         <button class="btn btn-secondary fixed-size float-center">{{ questions.reponse2 }}</button>
                     </div>
-                    <div class="text-center mt-3 choice">
+                    <div class="text-center mt-4 choice">
                         <button class="btn btn-secondary fixed-size float-center">{{ questions.reponse3 }}</button>
                     </div>
                 </div>
@@ -40,6 +40,10 @@
                                 {% endif %}
                             {% endfor %}
                         </ul>
+                    </div>
+                    <div class="text-center">
+                        <h4>Description</h4>
+                        <p>{{ questions.description }}</p>
                     </div>
                     <div class="text-center">
                         <h4>Instructions</h4>
@@ -68,5 +72,10 @@
             selectors[2].classList.add('hidden');
         })
     }
+</script>
+<script>
+
+
+
 </script>
 {% endblock %}
