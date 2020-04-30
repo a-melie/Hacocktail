@@ -38,7 +38,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-<<<<<<< HEAD
+
 }
 
 /* Footer  */
@@ -52,6 +52,11 @@ body{
     font-size: 16px;
     padding: 50px;
     margin-top: 50px;
+}
+footer img {
+    height: 50px;
+    width: 45px;
+    margin-right: 20px;
 }
 
 .footer .footer-left,
