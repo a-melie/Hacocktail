@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <form method="post" class="mx-auto">
+            <div class="form-group">
+                <label for="TextInput">Pseudo</label>
+                <input type="text" id="TextInput" class="form-control" placeholder="Toto" name="login">
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Connect</button>
+        </form>
+    </div>
+{% endblock %}
