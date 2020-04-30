@@ -44,3 +44,7 @@ body{
 form {
     width: 30%;
 }
+
+.bg-light {
+    background-color: white !important;
+}
