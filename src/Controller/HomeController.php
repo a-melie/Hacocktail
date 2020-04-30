@@ -52,4 +52,16 @@ class HomeController extends AbstractController
         unset($_SESSION);
         header('location:/');
     }
+
+    public function search()
+    {
+        $cocktailList = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $cocktailApi = new CocktailApi();
+            $cocktailList = $cocktailApi->searchCocktailByName($_GET['name']);
+        }
+
+        return $this->twig->render("Home/search.html.twig", ['cocktails' => $cocktailList]);
+    }
 }
