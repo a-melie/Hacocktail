@@ -1,5 +1,5 @@
 main {
-    min-height: calc(100vh - 56px - 123px - 35px);
+    min-height: calc(100vh - 56px - 123px - 20px);
 }
 
 nav img {
