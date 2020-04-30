@@ -33,7 +33,7 @@ h3 {
 }
 
 body{
-    background-image: url("https://cdn.discordapp.com/attachments/704233251459432518/705157094109610154/test.jpg");
+    background-image: url("/assets/images/fond.jpg");
     backdrop-filter: grayscale(70%);
     background-repeat: no-repeat;
     background-size: cover;
