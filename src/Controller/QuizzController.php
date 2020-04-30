@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Model\CocktailApi;
 use App\Model\PixabayApi;
 use App\Model\QuestionManager;
 use App\Model\ThemeManager;
@@ -21,11 +22,14 @@ class QuizzController extends AbstractController
     {
         $quizz = new QuestionManager();
         $questions = $quizz->selectByTheme($theme, $order);
-        $pixabay= new PixabayApi();
-        $background =$pixabay->getBackgroundById($questions['0']['background_id']);
+        $pixabay = new PixabayApi();
+        $background = $pixabay->getBackgroundById($questions['0']['background_id']);
+        $cocktail = new CocktailApi();
+        $cocktailId = $cocktail->getCocktailById($questions['0']['cocktail_id']);
         return $this->twig->render('Quizz/play.html.twig', [
-            'questions' => $questions,
-            'background' => $background
-            ]);
+            'questions' => $questions[0],
+            'background' => $background,
+            'cocktail' => $cocktailId
+        ]);
     }
 }
