@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="container-fluid">
+        {% if cocktails == 'No drinks found' %}
+            <p class="alert alert-danger text-center mt-5">{{ cocktails }}</p>
+        {% endif %}
+        <div class="row">
+    {% for cocktail in cocktails %}
+    <div class="container size mt-3">
+        <img src="{{ cocktail.image }}" class="img" alt="cocktail">
+        <h3 class="text-center mt-2">{{ cocktail.name }}</h3>
+        <div class="card-body d-flex justify-content-center">
+            <ul>
+                {% for ingredient in cocktail.ingredients %}
+                    {% if ingredient != null %}
+                        <li>{{ ingredient }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for measure in cocktail.measures %}
+                    {% if measure != null %}
+                        <li class="no-transform">{{ measure }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="text-center">
+            <h4>Instructions</h4>
+            <p class="mb-0">{{ cocktail.instruction }}</p>
+        </div>
+    </div>
+{% endfor %}
+    </div>
+    </div>
+
+{% endblock %}

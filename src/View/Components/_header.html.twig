@@ -6,6 +6,12 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        {% if session.login != null %}
+        <form method="get" action="/home/search/" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="name" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Research</button>
+        </form>
+        {% endif %}
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 {% if session.login != null %}
