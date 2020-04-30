@@ -4,13 +4,13 @@
 <div class="container-fluid mb-5">
     <h1 class="col-6 offset-3 bg-light rounded text-center">Quizz</h1>
     <div class="container-fluid mt-4">
-        <div class="p-3">
-            <h2 class="text-center text-white" id="question">{{ questions.question }}</h2>
+        <div class="p-5 mt-4 container rounded">
+            <h2 class="text-center bg-light rounded" id="question">{{ questions.question }}</h2>
         </div>
         <div class="container-fluid d-flex justify-content-between">
             <div class="bg-light rounded">
                 <img src="{{ cocktail.image }}" class="img rounded" alt="cocktail">
-                <h3 class="text-center mt-2">{{ cocktail.name }}</h3>
+                <h3 class="text-center text-dark mt-4">{{ cocktail.name }}</h3>
             </div>
             <div>
                 <div class="text-center choice">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="container bg-white rounded ml-5 hidden" id="recipe">
-                <h4 class="text-center">Ingredients</h4>
+                <h4 class="text-center mt-3">Ingredients</h4>
                 <div class="card-body d-flex justify-content-center">
                     <ul>
                         {% for ingredient in cocktail.ingredients %}
@@ -42,13 +42,19 @@
                     </ul>
                 </div>
                 <div class="text-center">
+                    <h4>Description</h4>
+                    <p>{{ questions.description }}</p>
+                </div>
+                <div class="text-center">
                     <h4>Instructions</h4>
                     <p>{{ cocktail.instruction }}</p>
                 </div>
                 <div class="text-center">
-                    <a href="/quizz/play/{{ questions.title }}/{{ questions.order + 1 }}">
-                        <button class="btn btn-secondary mb-2">Next question</button>
-                    </a>
+                    {% if session[theme]['nb_questions'] == session[theme]['actual'] %}
+                        <a href="/quizz/finish/{{ questions.title }}"><button class="btn btn-secondary mb-2">Finish</button></a>
+                    {% else %}
+                        <a href="/quizz/play/{{ questions.title }}/{{ questions.order + 1 }}"><button class="btn btn-secondary mb-2">Next question</button></a>
+                    {% endif %}
                 </div>
             </div>
         </div>
