@@ -1,53 +1,53 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <div class="col-6 offset-3">
-        <h1 class="bg-light text-center">Quizz</h1>
-    </div>
-    <div class="container-fluid d-flex justify-content-around align-items-center">
-        <div>
-            <img src="{{ cocktail.image }}" class="img" alt="cocktail">
-            <h3 class="text-center mt-2">{{ cocktail.name }}</h3>
-        </div>
-        <div>
-            <div>
-            <h2 class="text-center">{{ questions.question }}</h2>
+    <div class="container-fluid mb-5">
+        <h1 class="col-6 offset-3 bg-light rounded text-center">Quizz</h1>
+        <div class="container-fluid mt-4">
+            <div class="p-3">
+                <h2 class="text-center text-white" id="question">{{ questions.question }}</h2>
             </div>
-            <div class="text-center mt-5 choice">
-                <p ><button class="btn btn-secondary fixed-size float-center">{{ questions.reponse1 }}</button></p>
-            </div>
-            <div class="text-center mt-5 choice">
-                <p><button class="btn btn-secondary fixed-size float-center">{{ questions.reponse2 }}</button></p>
-            </div>
-            <div class="text-center mt-5 choice">
-                <p><button class="btn btn-secondary fixed-size float-center ">{{ questions.reponse3 }}</button></p>
-            </div>
-        </div>
-        <div>
-            <div class="container bg-white hidden" id="recipe">
-                <h4 class="text-center">Ingredients</h4>
-                <div class="card-body d-flex justify-content-center">
-                    <ul>
-                        {% for ingredient in cocktail.ingredients %}
-                            {% if ingredient != null %}
-                                <li>{{ ingredient }}</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                    <ul>
-                        {% for measure in cocktail.measures %}
-                            {% if measure != null %}
-                                <li class="no-transform">{{ measure }}</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+            <div class="container-fluid d-flex justify-content-between">
+                <div class="bg-light rounded">
+                    <img src="{{ cocktail.image }}" class="img rounded" alt="cocktail">
+                    <h3 class="text-center mt-2">{{ cocktail.name }}</h3>
                 </div>
-                <div class="text-center">
-                    <h4>Instructions</h4>
-                    <p>{{ cocktail.instruction }}</p>
+                <div>
+                    <div class="text-center choice">
+                        <p ><button class="btn btn-secondary border-success fixed-size float-center">{{ questions.reponse1 }}</button></p>
+                    </div>
+                    <div class="text-center mt-5 choice">
+                        <p><button class="btn btn-secondary border-success fixed-size float-center">{{ questions.reponse2 }}</button></p>
+                    </div>
+                    <div class="text-center mt-5 choice">
+                        <p><button class="btn btn-secondary border-success fixed-size float-center ">{{ questions.reponse3 }}</button></p>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <a href="/quizz/play/{{ questions.title }}/{{ questions.order + 1 }}"><button class="btn btn-secondary">suivant</button></a>
+                <div class="container bg-white rounded ml-5 hidden" id="recipe">
+                    <h4 class="text-center">Ingredients</h4>
+                    <div class="card-body d-flex justify-content-center">
+                        <ul>
+                            {% for ingredient in cocktail.ingredients %}
+                                {% if ingredient != null %}
+                                    <li>{{ ingredient }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        <ul>
+                            {% for measure in cocktail.measures %}
+                                {% if measure != null %}
+                                    <li class="no-transform">{{ measure }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <h4>Instructions</h4>
+                        <p>{{ cocktail.instruction }}</p>
+                    </div>
+                    <div class="text-center">
+                        <a href="/quizz/play/{{ questions.title }}/{{ questions.order + 1 }}"><button class="btn btn-secondary mb-2">Next question</button></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,9 +58,14 @@
 <script>
     let recipe = document.getElementById('recipe');
     let selectors = document.getElementsByClassName('choice');
+    let question = document.getElementById('question');
     for (let i = 0; i< selectors.length; i++){
         selectors[i].addEventListener('click', (e)=>{
             recipe.classList.toggle('hidden');
+            selectors[0].classList.add('hidden');
+             selectors[1].classList.add('hidden');
+              selectors[2].classList.add('hidden');
+              question.classList.add('hidden');
         })
     }
 </script>
